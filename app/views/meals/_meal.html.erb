@@ -1,17 +1,14 @@
-<div id="<%= dom_id meal %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Meal:</strong>
-    <%= meal.meal %>
-  </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Date:</strong>
+<div id="<%= dom_id meal %>" class="flex items-center justify-between bg-white rounded-md shadow-md p-4 mb-6">
+  <div class="">
     <%= meal.date %>
-  </p>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this meal", meal, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to 'Edit this meal', edit_meal_path(meal), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+    <p class="text-2xl">
+      <%= meal.meal %>
+    </p>
+  </div>
+
+  <div class="flex gap-4">
+    <%= link_to 'Edit', edit_meal_path(meal), class: "button" %>
+    <%= button_to 'Delete', meal_path(meal), method: :delete, class: "button" %>
+  </div>
 </div>
