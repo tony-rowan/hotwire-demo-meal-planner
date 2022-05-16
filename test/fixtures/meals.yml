@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  meal: Paella
+  date: 2022-05-16
+
+two:
+  meal: Spaghetti Bolognese
+  date: 2022-05-19
