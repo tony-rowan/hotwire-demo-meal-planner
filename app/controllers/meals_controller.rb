@@ -1,11 +1,6 @@
 class MealsController < ApplicationController
   before_action :set_meal, only: %i[edit update destroy]
 
-  # GET /meals or /meals.json
-  def index
-    @meals = Meal.all
-  end
-
   # GET /meals/new
   def new
     @meal = Meal.new
@@ -20,7 +15,7 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
 
     if @meal.save
-      redirect_to meals_path, notice: "Meal was successfully created."
+      redirect_to root_path, notice: "Meal was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +24,7 @@ class MealsController < ApplicationController
   # PATCH/PUT /meals/1 or /meals/1.json
   def update
     if @meal.update(meal_params)
-      redirect_to meals_path, notice: "Meal was successfully updated."
+      redirect_to root_path, notice: "Meal was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -39,7 +34,7 @@ class MealsController < ApplicationController
   def destroy
     @meal.destroy
 
-    redirect_to meals_path, notice: "Meal was successfully destroyed."
+    redirect_to root_path, notice: "Meal was successfully destroyed."
   end
 
   private

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "meals#index"
+  root "calendar#show"
 
-  resources :meals, except: :show
+  resources :meals, except: %i[index show]
 end
