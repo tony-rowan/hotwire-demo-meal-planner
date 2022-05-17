@@ -1,6 +1,19 @@
-<%= form_with(model: meal, class: "contents") do |form| %>
+<%= turbo_frame_tag "date_#{meal.date}" do %>
+  <%= form_with(model: meal, class: "flex items-end justify-between gap-6 bg-white rounded-md shadow-md p-4 mb-6") do |form| %>
+    <div>
+      <p><%= meal.date %></p>
+      <%= form.hidden_field :date %>
+      <%= form.text_field :meal, autofocus: true, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    </div>
+
+    <div class="flex items-stretch gap-4">
+      <%= form.submit class: "button button--primary" %>
+      <%= link_to "Cancel", root_path, class: "button" %>
+    </div>
+  <% end %>
+
   <% if meal.errors.any? %>
-    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+    <div id="error_explanation" class="bg-red-50 text-red-500 p-4 font-medium rounded-lg mb-4">
       <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
 
       <ul>
@@ -10,16 +23,5 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="my-5">
-    <%= form.label :meal %>
-    <%= form.text_field :meal, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <div class="my-5">
-    <%= form.label :date %>
-    <%= form.date_field :date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-  </div>
-
-  <%= form.submit class: "button button--primary" %>
 <% end %>
+
