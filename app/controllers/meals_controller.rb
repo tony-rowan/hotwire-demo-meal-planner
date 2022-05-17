@@ -34,15 +34,15 @@ class MealsController < ApplicationController
 
   private
 
-    def set_meal
-      @meal = Meal.find(params[:id])
-    end
+  def set_meal
+    @meal = Meal.find(params[:id])
+  end
 
-    def new_meal_date
-      params[:date] || Date.today
-    end
+  def new_meal_date
+    params[:date] || Date.today
+  end
 
-    def meal_params
-      params.require(:meal).permit(:meal, :date)
-    end
+  def meal_params
+    params.require(:meal).permit(:meal, :date)
+  end
 end

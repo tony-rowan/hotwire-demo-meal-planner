@@ -8,12 +8,12 @@ class Meal < ApplicationRecord
 
   private
 
-    def broadcast_update_to_calendar(date:, meal:)
-      broadcast_replace_to(
-        "calendar",
-        partial: "calendar/date",
-        locals: { date:, meal: },
-        target: ApplicationController.helpers.date_dom_id(date)
-      )
-    end
+  def broadcast_update_to_calendar(date:, meal:)
+    broadcast_replace_to(
+      "calendar",
+      partial: "calendar/date",
+      locals: {date:, meal:},
+      target: ApplicationController.helpers.date_dom_id(date)
+    )
+  end
 end
