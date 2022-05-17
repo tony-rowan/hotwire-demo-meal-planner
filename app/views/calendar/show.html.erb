@@ -1,17 +1,18 @@
 <div class="w-full">
-  <div class="flex justify-between items-center mb-8">
-    <h1 class="font-bold text-4xl">Calendar</h1>
-    <%= link_to 'Plan Meal', new_meal_path, class: "button button--primary" %>
-  </div>
+  <h1 class="font-bold text-4xl mb-8">Calendar</h1>
 
   <div id="dates" class="min-w-full">
     <% @dates.each do |date| %>
       <% if meal = @meals[date] %>
         <%= render meal %>
       <% else %>
-        <div class="bg-white rounded-md shadow-md p-4 mb-6">
-          <p><%= date %></p>
-          <p class="italic text-gray-700">Nothing Planned</p>
+        <div class="flex items-center justify-between bg-white rounded-md shadow-md p-4 mb-6">
+          <div>
+            <p><%= date %></p>
+            <p class="italic text-gray-700">Nothing Planned</p>
+          </div>
+
+          <%= link_to "Plan Meal", new_meal_path(date: date), class: "button" %>
         </div>
       <% end %>
     <% end %>
