@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "date_#{date}" do %>
+  <% if meal %>
+    <%= render meal %>
+  <% else %>
+    <div class="flex items-center justify-between bg-white rounded-md shadow-md p-4 mb-6">
+      <div>
+        <p><%= date %></p>
+        <p class="italic text-gray-700">Nothing Planned</p>
+      </div>
+
+      <%= link_to "Plan Meal", new_meal_path(date: date), class: "button" %>
+    </div>
+  <% end %>
+<% end %>
