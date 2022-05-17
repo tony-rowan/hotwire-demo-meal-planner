@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "date_#{date}" do %>
+<%= turbo_frame_tag date_dom_id(date) do %>
   <% if meal %>
     <%= render meal %>
   <% else %>

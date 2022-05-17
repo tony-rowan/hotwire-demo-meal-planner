@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "date_#{meal.date}" do %>
+<%= turbo_frame_tag date_dom_id(meal.date) do %>
   <%= form_with(model: meal, class: "flex items-end justify-between gap-6 bg-white rounded-md shadow-md p-4 mb-6") do |form| %>
     <div>
       <p><%= meal.date %></p>
