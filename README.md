@@ -1,24 +1,9 @@
-# README
+# Hotwire Demo - Meal Planner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails app to help users plan their meals demonstrating how you can use Turbo
+to create an single page app that updates in realtime with absolutely no
+custom javascript.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The app demonstrates how to hook up turbo frames and streams where the
+displayed 'model' is not database backed. Here we want a static view on dates,
+but we want to perform CRUD on meals.
