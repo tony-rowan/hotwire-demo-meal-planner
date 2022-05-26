@@ -2,12 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-
-@layer components {
-  .btn-primary {
-    @apply py-2 px-4 bg-blue-200;
+@layer base {
+  body {
+    @apply bg-slate-50;
   }
 }
 
-*/
+@layer components {
+  .button {
+    @apply block py-2 px-4 bg-gray-200 hover:bg-gray-300 text-black rounded-lg cursor-pointer w-fit;
+  }
+
+  .button--primary {
+    @apply bg-blue-500 hover:bg-blue-400 text-white;
+  }
+
+  .button--danger {
+    @apply bg-red-500 hover:bg-red-400 text-white;
+  }
+
+  .actions {
+    @apply flex gap-x-4 items-center;
+  }
+
+  .meal {
+    @apply flex items-center justify-between bg-white rounded-lg p-6 shadow mb-4;
+  }
+}
