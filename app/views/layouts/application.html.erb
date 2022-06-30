@@ -12,12 +12,7 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="rounded bg-green-500 text-white px-12 py-4 w-fit mx-auto absolute top-8 right-8">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
-
+    <%= render "flash" %>
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

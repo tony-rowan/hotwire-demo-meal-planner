@@ -1,0 +1,2 @@
+<%= turbo_stream.replace "date_#{@meal.date}", partial: "calendars/date", locals: { meal: @meal, date: @meal.date } %>
+<%= turbo_stream.replace "flash", partial: "application/flash" %>

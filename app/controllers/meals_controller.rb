@@ -6,7 +6,7 @@ class MealsController < ApplicationController
   end
 
   def new
-    @meal = Meal.new
+    @meal = Meal.new(date: params[:date])
   end
 
   def edit
@@ -16,7 +16,10 @@ class MealsController < ApplicationController
     @meal = Meal.new(meal_params)
 
     if @meal.save
-      redirect_to meals_path, notice: "Meal Planned!"
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "Meal Planned!" }
+        format.turbo_stream { flash.now[:notice] = "Meal Planned!" }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -24,7 +27,10 @@ class MealsController < ApplicationController
 
   def update
     if @meal.update(meal_params)
-      redirect_to meals_path, notice: "Meal Updated!"
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: "Meal Updated!" }
+        format.turbo_stream { flash.now[:notice] = "Meal Updated!" }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -32,7 +38,10 @@ class MealsController < ApplicationController
 
   def destroy
     @meal.destroy
-    redirect_to meals_path, notice: "Meal Removed!"
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "Meal Removed!" }
+      format.turbo_stream { flash.now[:notice] = "Meal Removed!" }
+    end
   end
 
   private

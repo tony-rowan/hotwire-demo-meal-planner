@@ -1,0 +1,16 @@
+<%= turbo_frame_tag "date_#{date}" do %>
+  <% if meal %>
+    <%= render meal %>
+  <% else %>
+    <div class="meal">
+      <div>
+        <div><%= date %></div>
+        <div class="text-xl italic">Nothing Planned</div>
+      </div>
+
+      <div class="actions">
+        <%= link_to 'Plan Meal', new_meal_path(date: date), class: "button button--primary" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
